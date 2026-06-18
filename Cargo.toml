@@ -1,0 +1,34 @@
+[package]
+name = "gitez"
+version = "0.1.0"
+edition = "2021"
+description = "A TUI tool to manage SSH keys and multi-account GitHub configuration"
+license = "MIT"
+authors = ["Hackerkids"]
+
+[dependencies]
+# TUI
+ratatui = "0.29"
+crossterm = "0.28"
+tui-textarea = "0.7"
+
+# Error handling
+color-eyre = "0.6"
+
+# Filesystem / paths
+dirs = "5"
+
+# SSH key generation (ed25519)
+ssh-key = { version = "0.6", features = ["ed25519", "rand_core", "std"] }
+rand = "0.8"
+
+# Open URLs in the user's browser
+open = "5"
+
+# Clipboard access
+arboard = "3"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
