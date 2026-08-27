@@ -1,2 +1,8 @@
 /target
 Cargo.lock
+.opencode/magic-context/
+__pycache__/
+output/
+pr-draft.md
+commit.txt
+plans/.completed/
