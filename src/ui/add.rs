@@ -11,7 +11,7 @@
 use std::path::PathBuf;
 
 use color_eyre::eyre::{eyre, Result};
-use crossterm::event::KeyCode;
+use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use ratatui::{
     layout::{Alignment, Constraint, Direction, Layout, Rect},
     style::{Color, Modifier, Style},
@@ -19,11 +19,14 @@ use ratatui::{
     widgets::{Block, Borders, Paragraph, Wrap},
     Frame,
 };
+use tui_textarea::TextArea;
 
 use crate::account::Account;
 use crate::git::config as gitcfg;
 use crate::ssh::{config as sshcfg, keygen};
 use crate::ui;
+
+const FOLDER_PLACEHOLDER: &str = "e.g. /home/you/dev";
 
 #[derive(PartialEq, Eq, Clone, Copy)]
 enum Step {
@@ -37,11 +40,11 @@ enum Step {
 
 pub struct AddState {
     step: Step,
-    alias: String,
-    name: String,
-    email: String,
+    alias: TextArea<'static>,
+    name: TextArea<'static>,
+    email: TextArea<'static>,
     /// Current folder input being typed.
-    folder: String,
+    folder: TextArea<'static>,
     /// All folders accumulated so far.
     folders: Vec<String>,
     /// Once the wizard runs successfully this holds the public key.
@@ -52,17 +55,39 @@ pub struct AddState {
     error: Option<String>,
 }
 
+/// Build an empty single-line wizard input with the shared styling.
+fn single_line_input(placeholder: &str) -> TextArea<'static> {
+    styled_input(TextArea::default(), placeholder)
+}
+
+/// Apply the shared single-line wizard-input styling to a textarea that may
+/// already hold text (e.g. the prefilled default folder).
+fn styled_input(mut ta: TextArea<'static>, placeholder: &str) -> TextArea<'static> {
+    ta.remove_line_number();
+    ta.set_placeholder_text(placeholder);
+    ta.set_placeholder_style(ui::dim());
+    ta.set_style(ui::accent());
+    ta
+}
+
+/// Single-line textarea contents as an owned `String`.
+fn text(t: &TextArea) -> String {
+    t.lines().join("")
+}
+
 impl AddState {
     pub fn new() -> Self {
         let default_folder = dirs::home_dir()
             .map(|h| h.join("dev").to_string_lossy().to_string())
             .unwrap_or_default();
+        let mut folder = styled_input(TextArea::new(vec![default_folder]), FOLDER_PLACEHOLDER);
+        folder.move_cursor(tui_textarea::CursorMove::End);
         Self {
             step: Step::Alias,
-            alias: String::new(),
-            name: String::new(),
-            email: String::new(),
-            folder: default_folder,
+            alias: single_line_input("e.g. work"),
+            name: single_line_input("e.g. Ada Lovelace"),
+            email: single_line_input("e.g. you@example.com"),
+            folder,
             folders: Vec::new(),
             public_key: None,
             copied: false,
@@ -173,7 +198,7 @@ fn draw_body(f: &mut Frame, area: Rect, state: &AddState) {
     }
 }
 
-fn draw_input(f: &mut Frame, area: Rect, label: &str, value: &str, hint: &str) {
+fn draw_input(f: &mut Frame, area: Rect, label: &str, input: &TextArea<'_>, hint: &str) {
     let block = Block::default().borders(Borders::ALL);
     let inner = block.inner(area);
     f.render_widget(block, area);
@@ -181,11 +206,9 @@ fn draw_input(f: &mut Frame, area: Rect, label: &str, value: &str, hint: &str) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
-            Constraint::Length(1),
-            Constraint::Length(1),
-            Constraint::Length(2),
-            Constraint::Length(1),
-            Constraint::Min(0),
+            Constraint::Length(1), // label
+            Constraint::Length(1), // hint
+            Constraint::Min(3),    // input (multi-row so the cursor renders)
         ])
         .split(inner);
 
@@ -196,9 +219,7 @@ fn draw_input(f: &mut Frame, area: Rect, label: &str, value: &str, hint: &str) {
     let hint_p = Paragraph::new(Span::styled(hint, ui::dim()));
     f.render_widget(hint_p, chunks[1]);
 
-    let display = format!("> {value}_");
-    let input_p = Paragraph::new(Line::from(Span::styled(display, ui::accent())));
-    f.render_widget(input_p, chunks[3]);
+    f.render_widget(input, chunks[2]);
 }
 
 fn draw_folder_step(f: &mut Frame, area: Rect, state: &AddState) {
@@ -209,11 +230,10 @@ fn draw_folder_step(f: &mut Frame, area: Rect, state: &AddState) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
-            Constraint::Length(1),
-            Constraint::Length(1),
-            Constraint::Length(1),
-            Constraint::Min(2),
-            Constraint::Length(1),
+            Constraint::Length(1), // label
+            Constraint::Length(1), // hint
+            Constraint::Min(2),    // added folders
+            Constraint::Length(3), // input (multi-row so the cursor renders)
         ])
         .split(inner);
 
@@ -240,13 +260,9 @@ fn draw_folder_step(f: &mut Frame, area: Rect, state: &AddState) {
         .iter()
         .map(|p| Line::from(Span::styled(format!("  ✓ {p}"), ui::ok())))
         .collect();
-    f.render_widget(Paragraph::new(added), chunks[3]);
+    f.render_widget(Paragraph::new(added), chunks[2]);
 
-    let display = format!("> {}_", state.folder);
-    f.render_widget(
-        Paragraph::new(Line::from(Span::styled(display, ui::accent()))),
-        chunks[4],
-    );
+    f.render_widget(&state.folder, chunks[3]);
 }
 
 fn draw_review(f: &mut Frame, area: Rect, state: &AddState) {
@@ -254,7 +270,8 @@ fn draw_review(f: &mut Frame, area: Rect, state: &AddState) {
     let inner = block.inner(area);
     f.render_widget(block, area);
 
-    let key_path = format!("~/.ssh/id_ed25519_{}", state.alias);
+    let alias = text(&state.alias);
+    let key_path = format!("~/.ssh/id_ed25519_{alias}");
     let mut lines = vec![
         Line::from(Span::styled(
             "About to do the following:",
@@ -264,9 +281,9 @@ fn draw_review(f: &mut Frame, area: Rect, state: &AddState) {
         Line::from(format!("  • Generate ed25519 SSH key at {key_path}")),
         Line::from(format!(
             "  • Add Host github.com-{} to ~/.ssh/config",
-            state.alias
+            alias
         )),
-        Line::from(format!("  • Create ~/.gitconfig-{}", state.alias)),
+        Line::from(format!("  • Create ~/.gitconfig-{alias}")),
     ];
     for folder in &state.folders {
         lines.push(Line::from(format!(
@@ -277,15 +294,15 @@ fn draw_review(f: &mut Frame, area: Rect, state: &AddState) {
     lines.push(Line::from(""));
     lines.push(Line::from(vec![
         Span::styled("Name:  ", ui::dim()),
-        Span::raw(state.name.clone()),
+        Span::raw(text(&state.name)),
     ]));
     lines.push(Line::from(vec![
         Span::styled("Email: ", ui::dim()),
-        Span::raw(state.email.clone()),
+        Span::raw(text(&state.email)),
     ]));
     lines.push(Line::from(vec![
         Span::styled("Alias: ", ui::dim()),
-        Span::raw(state.alias.clone()),
+        Span::raw(alias),
     ]));
     lines.push(Line::from(""));
     if let Some(err) = &state.error {
@@ -357,57 +374,50 @@ fn draw_footer(f: &mut Frame, area: Rect, state: &AddState) {
     f.render_widget(p, area);
 }
 
-pub fn handle_key(state: &mut AddState, code: KeyCode) -> Result<Option<AddOutcome>> {
+pub fn handle_key(state: &mut AddState, key: KeyEvent) -> Result<Option<AddOutcome>> {
     match state.step {
-        Step::Alias => match code {
-            KeyCode::Char(c) => state.alias.push(c),
-            KeyCode::Backspace => {
-                state.alias.pop();
-            }
+        Step::Alias => match key.code {
             KeyCode::Enter => {
-                if !state.alias.trim().is_empty() {
+                if !text(&state.alias).trim().is_empty() {
                     state.step = Step::Name;
                 }
             }
             KeyCode::Esc => return Ok(Some(AddOutcome { message: None })),
-            _ => {}
-        },
-        Step::Name => match code {
-            KeyCode::Char(c) => state.name.push(c),
-            KeyCode::Backspace => {
-                state.name.pop();
+            KeyCode::Tab => {}
+            _ => {
+                state.alias.input(key);
             }
+        },
+        Step::Name => match key.code {
             KeyCode::Enter => {
-                if !state.name.trim().is_empty() {
+                if !text(&state.name).trim().is_empty() {
                     state.step = Step::Email;
                 }
             }
             KeyCode::Esc => state.step = Step::Alias,
-            _ => {}
-        },
-        Step::Email => match code {
-            KeyCode::Char(c) => state.email.push(c),
-            KeyCode::Backspace => {
-                state.email.pop();
+            KeyCode::Tab => {}
+            _ => {
+                state.name.input(key);
             }
+        },
+        Step::Email => match key.code {
             KeyCode::Enter => {
-                if state.email.contains('@') {
+                if text(&state.email).contains('@') {
                     state.step = Step::Folder;
                 }
             }
             KeyCode::Esc => state.step = Step::Name,
-            _ => {}
-        },
-        Step::Folder => match code {
-            KeyCode::Char(c) => state.folder.push(c),
-            KeyCode::Backspace => {
-                state.folder.pop();
+            KeyCode::Tab => {}
+            _ => {
+                state.email.input(key);
             }
+        },
+        Step::Folder => match key.code {
             KeyCode::Enter => {
-                if !state.folder.trim().is_empty() {
-                    let f = state.folder.trim().to_string();
-                    state.folders.push(f);
-                    state.folder.clear();
+                let folder = text(&state.folder);
+                if !folder.trim().is_empty() {
+                    state.folders.push(folder.trim().to_string());
+                    state.folder = single_line_input(FOLDER_PLACEHOLDER);
                 } else if !state.folders.is_empty() {
                     state.step = Step::Review;
                 }
@@ -419,9 +429,12 @@ pub fn handle_key(state: &mut AddState, code: KeyCode) -> Result<Option<AddOutco
                     state.folders.pop();
                 }
             }
-            _ => {}
+            KeyCode::Tab => {}
+            _ => {
+                state.folder.input(key);
+            }
         },
-        Step::Review => match code {
+        Step::Review => match key.code {
             KeyCode::Esc => state.step = Step::Folder,
             KeyCode::Enter => match apply(state) {
                 Ok(pk) => {
@@ -434,8 +447,8 @@ pub fn handle_key(state: &mut AddState, code: KeyCode) -> Result<Option<AddOutco
             },
             _ => {}
         },
-        Step::Done => match code {
-            KeyCode::Char('c') => {
+        Step::Done => match key.code {
+            KeyCode::Char('c') if !key.modifiers.contains(KeyModifiers::CONTROL) => {
                 if let Some(pk) = &state.public_key {
                     if let Ok(mut ctx) = arboard::Clipboard::new() {
                         let _ = ctx.set_text(pk.clone());
@@ -444,7 +457,7 @@ pub fn handle_key(state: &mut AddState, code: KeyCode) -> Result<Option<AddOutco
                 }
             }
             KeyCode::Enter | KeyCode::Esc => {
-                let msg = format!("Account '{}' added.", state.alias);
+                let msg = format!("Account '{}' added.", text(&state.alias));
                 return Ok(Some(AddOutcome { message: Some(msg) }));
             }
             _ => {}
@@ -455,9 +468,9 @@ pub fn handle_key(state: &mut AddState, code: KeyCode) -> Result<Option<AddOutco
 
 fn apply(state: &mut AddState) -> Result<String> {
     validate(state)?;
-    let alias = state.alias.trim().to_string();
-    let name = state.name.trim().to_string();
-    let email = state.email.trim().to_string();
+    let alias = text(&state.alias).trim().to_string();
+    let name = text(&state.name).trim().to_string();
+    let email = text(&state.email).trim().to_string();
     let folders: Vec<PathBuf> = state
         .folders
         .iter()
@@ -483,7 +496,8 @@ fn apply(state: &mut AddState) -> Result<String> {
 }
 
 fn validate(state: &AddState) -> Result<()> {
-    let alias = state.alias.trim();
+    let alias = text(&state.alias);
+    let alias = alias.trim();
     if alias.is_empty() {
         return Err(eyre!("Alias cannot be empty"));
     }
@@ -493,14 +507,149 @@ fn validate(state: &AddState) -> Result<()> {
     {
         return Err(eyre!("Alias may only contain letters, numbers, '-', '_'"));
     }
-    if state.name.trim().is_empty() {
+    if text(&state.name).trim().is_empty() {
         return Err(eyre!("Name cannot be empty"));
     }
-    if state.email.trim().is_empty() || !state.email.contains('@') {
+    let email = text(&state.email);
+    if email.trim().is_empty() || !email.contains('@') {
         return Err(eyre!("Email looks invalid"));
     }
     if state.folders.is_empty() {
         return Err(eyre!("At least one folder is required"));
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn kev(code: KeyCode, mods: KeyModifiers) -> KeyEvent {
+        KeyEvent::new(code, mods)
+    }
+
+    fn type_str(state: &mut AddState, s: &str) {
+        for c in s.chars() {
+            handle_key(state, kev(KeyCode::Char(c), KeyModifiers::NONE)).unwrap();
+        }
+    }
+
+    fn enter(state: &mut AddState) {
+        handle_key(state, kev(KeyCode::Enter, KeyModifiers::NONE)).unwrap();
+    }
+
+    #[test]
+    fn edits_apply_at_cursor() {
+        let mut s = AddState::new();
+        type_str(&mut s, "ab");
+        handle_key(&mut s, kev(KeyCode::Left, KeyModifiers::NONE)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Backspace, KeyModifiers::NONE)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Char('x'), KeyModifiers::NONE)).unwrap();
+        assert_eq!(text(&s.alias), "xb");
+    }
+
+    #[test]
+    fn ctrl_arrows_jump_words() {
+        let mut s = AddState::new();
+        type_str(&mut s, "hi there");
+        assert_eq!(s.alias.cursor(), (0, 8));
+        // Jump within already-typed text: back to the start first.
+        handle_key(&mut s, kev(KeyCode::Home, KeyModifiers::NONE)).unwrap();
+        assert_eq!(s.alias.cursor(), (0, 0));
+        handle_key(&mut s, kev(KeyCode::Right, KeyModifiers::CONTROL)).unwrap();
+        assert_eq!(s.alias.cursor(), (0, 3));
+        handle_key(
+            &mut s,
+            kev(
+                KeyCode::Right,
+                KeyModifiers::CONTROL | KeyModifiers::SHIFT,
+            ),
+        )
+        .unwrap();
+        assert_eq!(s.alias.cursor(), (0, 8));
+    }
+
+    #[test]
+    fn backspace_deletes_selection() {
+        let mut s = AddState::new();
+        type_str(&mut s, "ab");
+        handle_key(&mut s, kev(KeyCode::Home, KeyModifiers::NONE)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Right, KeyModifiers::SHIFT)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Backspace, KeyModifiers::NONE)).unwrap();
+        assert_eq!(text(&s.alias), "b");
+    }
+
+    #[test]
+    fn modifier_chords_do_not_insert() {
+        let mut s = AddState::new();
+        type_str(&mut s, "ab");
+        handle_key(&mut s, kev(KeyCode::Char('x'), KeyModifiers::CONTROL)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Char('x'), KeyModifiers::ALT)).unwrap();
+        assert_eq!(text(&s.alias), "ab");
+    }
+
+    #[test]
+    fn enter_validation_and_esc_back() {
+        let mut s = AddState::new();
+        enter(&mut s);
+        assert!(matches!(s.step, Step::Alias));
+        type_str(&mut s, "work");
+        enter(&mut s);
+        assert!(matches!(s.step, Step::Name));
+        handle_key(&mut s, kev(KeyCode::Esc, KeyModifiers::NONE)).unwrap();
+        assert!(matches!(s.step, Step::Alias));
+    }
+
+    #[test]
+    fn folder_step_adds_and_pops() {
+        let mut s = AddState::new();
+        type_str(&mut s, "work");
+        enter(&mut s);
+        type_str(&mut s, "Ada Lovelace");
+        enter(&mut s);
+        type_str(&mut s, "a@b.c");
+        enter(&mut s);
+        assert!(matches!(s.step, Step::Folder));
+
+        // Clear the prefilled default folder (path is environment-dependent).
+        handle_key(&mut s, kev(KeyCode::Home, KeyModifiers::NONE)).unwrap();
+        handle_key(&mut s, kev(KeyCode::End, KeyModifiers::SHIFT)).unwrap();
+        handle_key(&mut s, kev(KeyCode::Backspace, KeyModifiers::NONE)).unwrap();
+        assert!(text(&s.folder).is_empty());
+
+        type_str(&mut s, "/tmp/repos");
+        enter(&mut s);
+        assert_eq!(s.folders, vec!["/tmp/repos"]);
+        assert!(text(&s.folder).is_empty());
+
+        type_str(&mut s, "/tmp/other");
+        enter(&mut s);
+        assert_eq!(s.folders, vec!["/tmp/repos", "/tmp/other"]);
+
+        handle_key(&mut s, kev(KeyCode::Esc, KeyModifiers::NONE)).unwrap();
+        assert_eq!(s.folders, vec!["/tmp/repos"]);
+        assert!(matches!(s.step, Step::Folder));
+    }
+
+    #[test]
+    fn email_without_at_stays_on_email() {
+        let mut s = AddState::new();
+        type_str(&mut s, "work");
+        enter(&mut s);
+        type_str(&mut s, "Ada");
+        enter(&mut s);
+        assert!(matches!(s.step, Step::Email));
+        type_str(&mut s, "nope");
+        enter(&mut s);
+        assert!(matches!(s.step, Step::Email));
+    }
+
+    #[test]
+    fn done_ctrl_c_does_not_copy() {
+        let mut s = AddState::new();
+        s.step = Step::Done;
+        s.public_key = Some("ssh-ed25519 AAAATEST test".to_string());
+        handle_key(&mut s, kev(KeyCode::Char('c'), KeyModifiers::CONTROL)).unwrap();
+        assert!(!s.copied);
+    }
 }

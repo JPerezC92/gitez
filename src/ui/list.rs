@@ -198,11 +198,9 @@ pub fn handle_key_view(state: &mut ListState, code: KeyCode) -> bool {
                 state.cursor -= 1;
             }
         }
-        KeyCode::Enter => {
-            if !state.aliases.is_empty() {
-                let alias = &state.aliases[state.cursor];
-                state.detail = load_key_detail(alias);
-            }
+        KeyCode::Enter if !state.aliases.is_empty() => {
+            let alias = &state.aliases[state.cursor];
+            state.detail = load_key_detail(alias);
         }
         _ => {}
     }
