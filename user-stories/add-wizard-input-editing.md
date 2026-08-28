@@ -21,7 +21,7 @@
 
 ## Acceptance criteria
 
-- ✅ Cursor movement within typed text works on all 4 inputs: Left/Right, Home/End, Ctrl/Ctrl+Shift/Alt+arrow word jump (plan G1)
+- ✅ Cursor movement within typed text works on all 4 inputs: Left/Right, Home/End, Ctrl/Ctrl+Shift+arrow and Alt+b/Alt+f word jump (plan G1)
 - ✅ Edits apply at the cursor; Shift+arrows select and the next edit replaces the selection (plan G2)
 - ✅ Wizard Enter/Esc flow and every other screen's bindings are unchanged; no new binding collides with window navigation (plan G3)
 - ✅ Ctrl/Alt modifier chords never insert characters into the inputs (plan G4)
