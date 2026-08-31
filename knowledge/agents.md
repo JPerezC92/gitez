@@ -8,6 +8,7 @@ Cross-cutting rules and cross-agent protocols that apply to the roster. Each age
 - **Hypotheses**: cite partial evidence + state what would confirm/refute. Label with `hipótesis:`.
 - **Assumptions**: FORBIDDEN. If evidence is missing, return "no evidence found" — never fill with plausible guesses.
 - Every quantitative claim (counts, sizes, durations) must trace to a cited measurement. Unverified quantitative claims are FAILs.
+- Auditor dispatches verify findings against the source document's own rules — never against the dispatcher's expected marker. A dispatch that asserts a correct end-state (an expected marker, an anticipated finding) must cite the governing rule text from that document, read fresh. Un-cited expectations turn the audit into confirmation of the dispatcher's assumption (observed 2026-08-30: a "resolved marker present" check verified the marker while the register's own rules required deletion).
 
 ## Prior-art before re-investigation
 
@@ -33,6 +34,10 @@ If an exact prior-art match exists, return the reference + match strength; do NO
 - SELECT columns must include the filter columns when the result is used for screenshots.
 - Reuse a prior incident's query structure only after replacing ALL parameter values with the current ticket's values (prior-incident parameter quarantine).
 - Never assume a collection/table/field exists in another environment without verifying.
+
+## Instrument discipline
+
+- Recursive file-pattern search silently skips dot-directories (e.g. `.opencode/`): a bare `**/*.md` omits them entirely, and a dot-prefixed pattern (`.opencode/**/*.md`) returns nothing at all. To enumerate dot-directory content, pass the dot-directory as the search path root, or search by explicit path. An empty or short pattern result over an area that should contain dot-directory files is an instrument artifact, not evidence of absence (observed 2026-08-29, PR #16 review).
 
 ## Screenshot-ready output
 

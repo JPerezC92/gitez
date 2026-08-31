@@ -5,7 +5,7 @@ license: MIT
 compatibility: opencode
 metadata:
   author: Philip Perez Castro
-  version: 1.7.0
+  version: 1.8.0
 ---
 
 ## What I do
@@ -117,6 +117,7 @@ Extract the goals from the task description before writing any plan file:
 2. State each goal as what must be true when the plan is done — an observable condition, not an activity.
 3. Programming goals (see **Template selection**) additionally carry a `Done when:` criterion (see Persist).
 4. More than 5 goals triggers the soft goal-bloat flag (see **Simplicity discipline**) — report it in the confirmation gate; do not silently proceed.
+5. A goal whose done-condition references another document's state (a debt-register entry, a rule file, a checklist) MUST be drafted from that document's current text, read fresh at plan-creation — never from memory or a prior plan's phrasing. Quote the governing text in the goal or its verification line. A done-condition invented from recall inherits the recall error and every downstream gate verifies the assumption instead of the source (observed 2026-08-30: a "mark resolved in register" goal contradicted the register's own retirement rule).
 
 ### Present (pre-file gate)
 
@@ -161,6 +162,7 @@ When the plan's work is done and its audits have passed — before the release P
 - Present the goals resume in chat: one line per goal, `✅` when met, `❌` when not, each with a 1-line evidence note.
 - Write `## Outcome` into `plan.md` — what the plan produced, per goal — BEFORE moving the plan to `plans/.completed/`.
 - Set `Status: completed`, append `Completed: YYYY-MM-DD HH:MM`, and move the plan to `plans/.completed/` (folder or file per layout). All of this happens pre-release; the merged PR number or merge SHA may be appended to the local archive copy afterwards as free metadata.
+- Filesystem-verify the archive after the move: confirm every expected file exists under `plans/.completed/<plan>/` AND the active copy is gone from `plans/`. A `mv` that reports success can still leave the active copy in place (observed 2026-08-24); the filesystem, not the command's silence, is the evidence.
 - A plan archived without `## Outcome` is a lifecycle violation: restore it, write the section, then archive again.
 
 ## Simplicity discipline
