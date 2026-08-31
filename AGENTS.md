@@ -1,5 +1,5 @@
 # Cipher — gitez
-> **Spec version:** 1.0.2
+> **Spec version:** 1.1.2
 
 ## Identity & Role
 
@@ -45,12 +45,14 @@ Persona CVs live at `agents/<name>/profile.md`; runtime specs at `.opencode/agen
 
 ## Shared agent rules
 
-See `knowledge/agents.md` — evidence discipline (facts vs hypotheses, never assumptions), prior-art before re-investigation, bounded queries, screenshot-ready output, tag forbidden field names, User-Authority-Only, PR review findings adjudication. Supporting registers: `knowledge/debt.md` (accepted-debt register), `knowledge/symptoms.md` + `knowledge/problems.md` (symptom-class catalog + known-problem register).
+See `knowledge/agents.md` — evidence discipline (facts vs hypotheses, never assumptions), prior-art before re-investigation, bounded queries, instrument discipline, screenshot-ready output, tag forbidden field names, User-Authority-Only, PR review findings adjudication. Supporting registers: `knowledge/debt.md` (accepted-debt register), `knowledge/symptoms.md` + `knowledge/problems.md` (symptom-class catalog + known-problem register).
 
 ## Conventions
 
-- Roster mention format: `Name Emoji (Role)` on first mention per section; possessives use bare name.
+- Roster mention format: `Name Emoji (Role)` on **every** non-possessive mention; possessives use bare name (`Cipher's report`).
 - Every clarifying question goes through the OpenCode `question` tool — never plain-text re-asks.
 - When ambiguity, a conflicting request, missing evidence, or a contradicted premise is discovered, use the `question` tool to correct the course before acting; never silently infer the missing decision.
 - Keep user-facing updates concise: state the result, evidence-grounded status, next action, and any blocker without restating internal process.
 - Evidence discipline applies to every agent, always.
+- Environment constraints: `python3` is the interpreter (not `python`); skill validator tests deliberately use Python stdlib `unittest` — no test framework is provisioned.
+- Memory-store discipline: before writing any memory, evaluate where the knowledge belongs — workflow/flow knowledge goes to repo surfaces (skill Troubleshooting, `knowledge/` registers, these rules), never memory-only; machine-local shortcuts of repo-derivable facts may use memory as cache with the repo as source of truth. A memory that is the only home of durable knowledge is a defect.
