@@ -3,7 +3,7 @@
 use std::time::Duration;
 
 use color_eyre::Result;
-use crossterm::event::{self, Event, KeyCode, KeyEventKind};
+use crossterm::event::{self, Event, KeyEvent, KeyEventKind};
 use ratatui::Frame;
 
 use crate::tui::Tui;
@@ -14,6 +14,9 @@ use crate::ui::test::TestState;
 use crate::ui::{add, home, list, migrate, test};
 
 /// Which screen we're currently on.
+// The Add wizard holds four tui-textarea inputs (~2KB); boxing the variant would
+// leak the wizard's construction site (home.rs) into this change.
+#[allow(clippy::large_enum_variant)]
 pub enum Screen {
     Home(home::HomeState),
     Add(AddState),
@@ -52,7 +55,7 @@ impl App {
             if event::poll(Duration::from_millis(250))? {
                 if let Event::Key(key) = event::read()? {
                     if key.kind == KeyEventKind::Press {
-                        self.handle_key(key.code)?;
+                        self.handle_key(key)?;
                     }
                 }
             }
@@ -71,27 +74,27 @@ impl App {
         }
     }
 
-    fn handle_key(&mut self, code: KeyCode) -> Result<()> {
+    fn handle_key(&mut self, key: KeyEvent) -> Result<()> {
         match &mut self.screen {
             Screen::Home(state) => {
-                if let Some(next) = home::handle_key(state, code) {
+                if let Some(next) = home::handle_key(state, key.code) {
                     self.flash = None;
                     self.screen = next;
                 }
             }
             Screen::Add(state) => {
-                if let Some(outcome) = add::handle_key(state, code)? {
+                if let Some(outcome) = add::handle_key(state, key)? {
                     self.flash = outcome.message;
                     self.screen = Screen::Home(home::HomeState::new());
                 }
             }
             Screen::List(state) => {
-                if list::handle_key_view(state, code) {
+                if list::handle_key_view(state, key.code) {
                     self.screen = Screen::Home(home::HomeState::new());
                 }
             }
             Screen::Remove(state) => {
-                match list::handle_key_remove(state, code)? {
+                match list::handle_key_remove(state, key.code)? {
                     list::RemoveOutcome::Stay => {}
                     list::RemoveOutcome::Done(msg) => {
                         self.flash = Some(msg);
@@ -103,12 +106,12 @@ impl App {
                 }
             }
             Screen::Test(state) => {
-                if test::handle_key(state, code)? {
+                if test::handle_key(state, key.code)? {
                     self.screen = Screen::Home(home::HomeState::new());
                 }
             }
             Screen::Migrate(state) => {
-                if migrate::handle_key(state, code) {
+                if migrate::handle_key(state, key.code) {
                     self.screen = Screen::Home(home::HomeState::new());
                 }
             }
