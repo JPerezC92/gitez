@@ -1,5 +1,16 @@
 # User stories — index
 
-| Feature | Title | Status |
-|---|---|---|
-| add-wizard-input-editing | Add-wizard text inputs with full cursor editing | active |
+| Feature | Title | Status | Epic | Affected areas |
+|---|---|---|---|---|
+| add-wizard-input-editing | Add-wizard text inputs with full cursor editing | active |  | `src/ui/add.rs`, `src/app.rs` |
+| clean-architecture-contract | Clean architecture contract | active | core-governance | `knowledge/agents.md`, `.opencode/agents/atrium.md`, `.opencode/agents/bastion.md`, `.opencode/agents/crucible.md`, `.opencode/agents/forge.md`, `.opencode/agents/marshal.md`, `.opencode/agents/sentinel.md`, `.opencode/skills/op-agent-creator/SKILL.md` |
+| diagnostic-system | Diagnostic system | active | incident-diagnostics | `knowledge/symptoms.md`, `knowledge/problems.md`, `knowledge/diagnostic-system-design.md` |
+| git-pr-drafting | Pull request draft generation | active | developer-tooling | `.opencode/skills/git-pr/`, `plans/`, `pr-draft.md`, `.gitignore` |
+| incident-query-verification | Incident query verification | active | incident-diagnostics | `.opencode/skills/query-verification/`, `.opencode/skills/ticket-runbook/`, `.opencode/agents/crucible.md`, `knowledge/` |
+| op-model-configuration | OpenCode model configuration | active | developer-tooling | `.opencode/skills/op-model/`, `opencode.json`, `opencode.jsonc` |
+| plan-lifecycle-governance | Plan lifecycle governance | active | plan-governance | `.opencode/skills/plan-enforce/`, `.opencode/skills/user-story/`, `.opencode/skills/git-commit/`, `.opencode/skills/git-pr/`, `.opencode/skills/op-agent-creator/`, `.opencode/skills/op-model/`, `.opencode/skills/op-skill-creator/`, `AGENTS.md`, `knowledge/agents.md`, `README.md`, `user-stories/`, `.opencode/agents/atrium.md`, `.opencode/agents/bastion.md`, `.opencode/agents/crucible.md`, `.opencode/agents/forge.md`, `.opencode/agents/marshal.md`, `.opencode/agents/sentinel.md`, `.opencode/agents/vault.md`, `opencode.jsonc` |
+| post-merge-branch-cleanup | Merge-style-aware post-merge branch cleanup | active | developer-tooling | `.opencode/skills/plan-enforce/`, `.opencode/agents/herald.md` |
+| pr-test-evidence-collection | PR test evidence collection | active | developer-tooling | `.opencode/agents/inquisitor.md`, `.opencode/agents/herald.md`, `AGENTS.md`, `.opencode/skills/git-pr/SKILL.md`, `knowledge/agents.md` |
+| register-first-incident-identification | Register-first incident identification | active | incident-diagnostics | `.opencode/skills/ticket-runbook/`, `knowledge/symptoms.md`, `knowledge/problems.md`, `knowledge/agents.md`, `.opencode/agents/investigator.md`, `.opencode/agents/ledger.md`, `.opencode/agents/quill.md`, `.opencode/agents/scribe.md` |
+| safe-roster-parallelism | Safe roster-wide agent parallelism | active | core-governance | `AGENTS.md`, `knowledge/agents.md`, `.opencode/agents/`, `.opencode/skills/plan-enforce/`, `.opencode/skills/ticket-runbook/`, `README.md` |
+| user-story | Collaborative user-story definition | active | plan-governance | `.opencode/skills/user-story/`, `.opencode/skills/plan-enforce/SKILL.md`, `.opencode/skills/plan-enforce/references/_consistency-checklist.md`, `AGENTS.md`, `.opencode/agents/sentinel.md`, `README.md`, `user-stories/`, `knowledge/agents.md`, `distribution-clearance.definition.md`, `distribution-clearance.json` |
