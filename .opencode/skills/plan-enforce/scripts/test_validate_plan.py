@@ -17,7 +17,7 @@ class ValidatePlanStructureTests:
 
     def test_valid_single_file_passes(self, tmp_path: Path) -> None:
         plan_path = write_fixture(tmp_path, "plan.md", VALID_PLAN)
-        assert vp.check_plan_file(plan_path) == []
+        assert vp.validate_single_file(str(plan_path)) == 0
 
     def test_bad_status_flagged(self) -> None:
         bad = VALID_PLAN.replace("> **Status:** active", "> **Status:** bogus")
