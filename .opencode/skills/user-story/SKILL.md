@@ -1,3 +1,12 @@
+---
+name: user-story
+description: Own the pre-plan feature contract. Create or revise a durable user story that states a feature's persona, observable goal, scenarios, and acceptance criteria; verify it against the whole story catalogue for semantic collisions; obtain explicit approval; and hand the approved story and its selected criteria to `plan-enforce`.
+license: MIT
+compatibility: opencode
+metadata:
+  author: Philip Perez Castro
+  version: 1.0.0
+---
 <!-- core:begin -->
 
 ## What I do

@@ -1,3 +1,12 @@
+---
+name: query-verification
+description: Validate and evaluate one incident-owned, sidecar-defined SQL verifier entirely offline, then emit a redacted case-evidence record. Exactly three verdicts exist: `verified`, `not_verified`, and `inconclusive`; the skill never connects to a database, executes SQL, reads credentials, or invokes a subprocess.
+license: MIT
+compatibility: opencode
+metadata:
+  author: Philip Perez Castro
+  version: 1.0.0
+---
 <!-- core:begin -->
 
 ## Mandatory core

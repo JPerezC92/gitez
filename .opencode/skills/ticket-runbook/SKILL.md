@@ -1,3 +1,12 @@
+---
+name: ticket-runbook
+description: Scaffold a per-ticket analysis working set and run register-first identification — normalize the ticket, match an S-xx symptom class, then match at most one Team: incident P-NNN from the project's problem register with a verdict of `exact`, `structural`, or `no_match`. When root cause is confirmed, grow the symptom/problem registers immediately and collapse the working set into the durable ticket record at close.
+license: MIT
+compatibility: opencode
+metadata:
+  author: Philip Perez Castro
+  version: 1.0.0
+---
 <!-- core:begin -->
 
 ## Mandatory core
