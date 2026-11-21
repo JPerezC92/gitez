@@ -1,47 +1,41 @@
 schema: 1
-core_revision: 534fa9dd07997117cf1fb2b0f5c20a52b23cb3ff
+core_revision: "79a985b5f4301503257f4588c1cfbb3ccd4be913"
 entries:
 - destination: AGENTS.md
   source: AGENTS.md
+  action: refreshed
+- destination: .aicore/core/knowledge/agents.md
+  source: .aicore/core/knowledge/agents.md
   action: initialized
-- destination: knowledge/agents.md
-  source: knowledge/agents.md
+- destination: .aicore/core/knowledge/escalation.md
+  source: .aicore/core/knowledge/escalation.md
   action: initialized
-- destination: knowledge/debt.md
-  source: knowledge/debt.md
+- destination: .aicore/core/knowledge/debt.md
+  source: .aicore/core/knowledge/debt.md
   action: initialized
-- destination: knowledge/problems.md
-  source: knowledge/problems.md
+- destination: .aicore/core/knowledge/diagnostics/diagnostic-guidance.md
+  source: .aicore/core/knowledge/diagnostics/diagnostic-guidance.md
   action: initialized
-- destination: knowledge/symptoms.md
-  source: knowledge/symptoms.md
+- destination: .aicore/core/knowledge/diagnostics/problems.md
+  source: .aicore/core/knowledge/diagnostics/problems.md
   action: initialized
-- destination: knowledge/diagnostic-system-design.md
-  source: knowledge/diagnostic-system-design.md
+- destination: .aicore/core/knowledge/diagnostics/symptoms.md
+  source: .aicore/core/knowledge/diagnostics/symptoms.md
   action: initialized
-- destination: .opencode/skills/plan-enforce/SKILL.md
-  source: .opencode/skills/plan-enforce/SKILL.md
+- destination: .aicore/core/knowledge/architecture-decision-workflow.md
+  source: .aicore/core/knowledge/architecture-decision-workflow.md
   action: initialized
-- destination: .opencode/skills/query-verification/SKILL.md
-  source: .opencode/skills/query-verification/SKILL.md
+- destination: .agents/skills/incident-workflow/SKILL.md
+  source: .agents/skills/incident-workflow/SKILL.md
   action: initialized
-- destination: .opencode/skills/ticket-runbook/SKILL.md
-  source: .opencode/skills/ticket-runbook/SKILL.md
+- destination: .agents/skills/git-pr-workflow/SKILL.md
+  source: .agents/skills/git-pr-workflow/SKILL.md
   action: initialized
-- destination: .opencode/skills/user-story/SKILL.md
-  source: .opencode/skills/user-story/SKILL.md
-  action: initialized
-- destination: .opencode/agents/lumen.md
-  source: .opencode/agents/lumen.md
-  action: initialized
-- destination: agents/lumen/profile.md
-  source: agents/lumen/profile.md
+- destination: .agents/skills/odd-workflow/SKILL.md
+  source: .agents/skills/odd-workflow/SKILL.md
   action: initialized
 - destination: .opencode/agents/atrium.md
   source: .opencode/agents/atrium.md
-  action: initialized
-- destination: .opencode/agents/augur.md
-  source: .opencode/agents/augur.md
   action: initialized
 - destination: .opencode/agents/bastion.md
   source: .opencode/agents/bastion.md
@@ -64,8 +58,8 @@ entries:
 - destination: .opencode/agents/ledger.md
   source: .opencode/agents/ledger.md
   action: initialized
-- destination: .opencode/agents/marshal.md
-  source: .opencode/agents/marshal.md
+- destination: .opencode/agents/lumen.md
+  source: .opencode/agents/lumen.md
   action: initialized
 - destination: .opencode/agents/quill.md
   source: .opencode/agents/quill.md
@@ -81,85 +75,4 @@ entries:
   action: initialized
 - destination: .opencode/agents/warden.md
   source: .opencode/agents/warden.md
-  action: initialized
-- destination: agents/atrium/profile.md
-  source: agents/atrium/profile.md
-  action: initialized
-- destination: agents/augur/profile.md
-  source: agents/augur/profile.md
-  action: initialized
-- destination: agents/bastion/profile.md
-  source: agents/bastion/profile.md
-  action: initialized
-- destination: agents/cipher/profile.md
-  source: agents/cipher/profile.md
-  action: initialized
-- destination: agents/crucible/profile.md
-  source: agents/crucible/profile.md
-  action: initialized
-- destination: agents/forge/profile.md
-  source: agents/forge/profile.md
-  action: initialized
-- destination: agents/herald/profile.md
-  source: agents/herald/profile.md
-  action: initialized
-- destination: agents/inquisitor/profile.md
-  source: agents/inquisitor/profile.md
-  action: initialized
-- destination: agents/investigator/profile.md
-  source: agents/investigator/profile.md
-  action: initialized
-- destination: agents/ledger/profile.md
-  source: agents/ledger/profile.md
-  action: initialized
-- destination: agents/marshal/profile.md
-  source: agents/marshal/profile.md
-  action: initialized
-- destination: agents/quill/profile.md
-  source: agents/quill/profile.md
-  action: initialized
-- destination: agents/scribe/profile.md
-  source: agents/scribe/profile.md
-  action: initialized
-- destination: agents/sentinel/profile.md
-  source: agents/sentinel/profile.md
-  action: initialized
-- destination: agents/vault/profile.md
-  source: agents/vault/profile.md
-  action: initialized
-- destination: agents/warden/profile.md
-  source: agents/warden/profile.md
-  action: initialized
-- destination: user-stories/clean-architecture-contract.md
-  source: user-stories/clean-architecture-contract.md
-  action: initialized
-- destination: user-stories/diagnostic-system.md
-  source: user-stories/diagnostic-system.md
-  action: initialized
-- destination: user-stories/git-pr-drafting.md
-  source: user-stories/git-pr-drafting.md
-  action: initialized
-- destination: user-stories/incident-query-verification.md
-  source: user-stories/incident-query-verification.md
-  action: initialized
-- destination: user-stories/op-model-configuration.md
-  source: user-stories/op-model-configuration.md
-  action: initialized
-- destination: user-stories/plan-lifecycle-governance.md
-  source: user-stories/plan-lifecycle-governance.md
-  action: initialized
-- destination: user-stories/post-merge-branch-cleanup.md
-  source: user-stories/post-merge-branch-cleanup.md
-  action: initialized
-- destination: user-stories/pr-test-evidence-collection.md
-  source: user-stories/pr-test-evidence-collection.md
-  action: initialized
-- destination: user-stories/register-first-incident-identification.md
-  source: user-stories/register-first-incident-identification.md
-  action: initialized
-- destination: user-stories/safe-roster-parallelism.md
-  source: user-stories/safe-roster-parallelism.md
-  action: initialized
-- destination: user-stories/user-story.md
-  source: user-stories/user-story.md
   action: initialized
