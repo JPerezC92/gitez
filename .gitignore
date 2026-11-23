@@ -1,3 +1,4 @@
+node_modules/
 /target
 Cargo.lock
 .opencode/magic-context/
@@ -6,3 +7,4 @@ output/
 pr-draft.md
 commit.txt
 plans/.completed/
+.secrets/

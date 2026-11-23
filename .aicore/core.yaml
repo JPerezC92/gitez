@@ -1,352 +1,692 @@
 schema: 1
-core_revision: 534fa9dd07997117cf1fb2b0f5c20a52b23cb3ff
+core_revision: "79a985b5f4301503257f4588c1cfbb3ccd4be913"
 root: AGENTS.md
+editor: opencode
 bindings:
 - source: AGENTS.md
   destinations:
   - AGENTS.md
-- source: opencode.jsonc
+- source: .opencode/opencode.jsonc
   destinations:
-  - opencode.jsonc
-- source: knowledge/agents.md
+  - .opencode/opencode.jsonc
+- source: .aicore/core/knowledge/agents.md
   destinations:
-  - knowledge/agents.md
-- source: knowledge/debt.md
+  - .aicore/core/knowledge/agents.md
+- source: .aicore/core/knowledge/agent-workflow.md
   destinations:
-  - knowledge/debt.md
-- source: knowledge/problems.md
+  - .aicore/core/knowledge/agent-workflow.md
+- source: .aicore/core/knowledge/release.md
   destinations:
-  - knowledge/problems.md
-- source: knowledge/symptoms.md
+  - .aicore/core/knowledge/release.md
+- source: .aicore/core/knowledge/escalation.md
   destinations:
-  - knowledge/symptoms.md
-- source: knowledge/diagnostic-system-design.md
+  - .aicore/core/knowledge/escalation.md
+- source: .aicore/core/knowledge/debt.md
   destinations:
-  - knowledge/diagnostic-system-design.md
-- source: .opencode/skills/git-branch-name/SKILL.md
+  - .aicore/core/knowledge/debt.md
+- source: .aicore/core/knowledge/diagnostics/diagnostic-guidance.md
   destinations:
-  - .opencode/skills/git-branch-name/SKILL.md
-- source: .opencode/skills/git-commit/SKILL.md
+  - .aicore/core/knowledge/diagnostics/diagnostic-guidance.md
+- source: .aicore/core/knowledge/diagnostics/problems.md
   destinations:
-  - .opencode/skills/git-commit/SKILL.md
-- source: .opencode/skills/git-pr/SKILL.md
+  - .aicore/core/knowledge/diagnostics/problems.md
+- source: .aicore/core/knowledge/diagnostics/symptoms.md
   destinations:
-  - .opencode/skills/git-pr/SKILL.md
-- source: .opencode/skills/op-agent-creator/SKILL.md
+  - .aicore/core/knowledge/diagnostics/symptoms.md
+- source: .aicore/core/knowledge/architecture-decision-workflow.md
   destinations:
-  - .opencode/skills/op-agent-creator/SKILL.md
-- source: .opencode/skills/op-agent-creator/references/governed-roster-code-reviewer.md
+  - .aicore/core/knowledge/architecture-decision-workflow.md
+- source: .aicore/core/odd/tasks/_template.md
   destinations:
-  - .opencode/skills/op-agent-creator/references/governed-roster-code-reviewer.md
-- source: .opencode/skills/op-model/SKILL.md
+  - .aicore/core/odd/tasks/_template.md
+- source: .aicore/core/odd/features/_template.md
   destinations:
-  - .opencode/skills/op-model/SKILL.md
-- source: .opencode/skills/op-model/scripts/models.py
+  - .aicore/core/odd/features/_template.md
+- source: .aicore/core/architecture/README.md
   destinations:
-  - .opencode/skills/op-model/scripts/models.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/__init__.py
+  - .aicore/core/architecture/README.md
+- source: .aicore/core/architecture/implementation/architecture.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/__init__.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/_test_support.py
+  - .aicore/core/architecture/implementation/architecture.md
+- source: .aicore/core/architecture/implementation/shapes/backend.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/_test_support.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/application/__init__.py
+  - .aicore/core/architecture/implementation/shapes/backend.md
+- source: .aicore/core/architecture/implementation/shapes/frontend.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/application/__init__.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/application/find_models.py
+  - .aicore/core/architecture/implementation/shapes/frontend.md
+- source: .aicore/core/architecture/implementation/shapes/scripts.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/application/find_models.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/application/test_find_models.py
+  - .aicore/core/architecture/implementation/shapes/scripts.md
+- source: .aicore/core/architecture/implementation/stacks/_template.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/application/test_find_models.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/domain/__init__.py
+  - .aicore/core/architecture/implementation/stacks/_template.md
+- source: .aicore/core/architecture/implementation/stacks/python.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/domain/__init__.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/domain/catalog.py
+  - .aicore/core/architecture/implementation/stacks/python.md
+- source: .aicore/core/architecture/implementation/stacks/typescript/nestjs.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/domain/catalog.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/domain/test_catalog.py
+  - .aicore/core/architecture/implementation/stacks/typescript/nestjs.md
+- source: .aicore/core/architecture/implementation/stacks/typescript/react.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/domain/test_catalog.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/domain/test_matching.py
+  - .aicore/core/architecture/implementation/stacks/typescript/react.md
+- source: .aicore/core/architecture/testing/architecture.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/domain/test_matching.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/e2e/__init__.py
+  - .aicore/core/architecture/testing/architecture.md
+- source: .aicore/core/architecture/testing/stacks/_template.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/e2e/__init__.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/e2e/conftest.py
+  - .aicore/core/architecture/testing/stacks/_template.md
+- source: .aicore/core/architecture/testing/stacks/python.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/e2e/conftest.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/e2e/test_models_cli.py
+  - .aicore/core/architecture/testing/stacks/python.md
+- source: .aicore/core/architecture/testing/stacks/typescript.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/e2e/test_models_cli.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/__init__.py
+  - .aicore/core/architecture/testing/stacks/typescript.md
+- source: .agents/skills/git-branch-name/SKILL.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/__init__.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/cli.py
+  - .agents/skills/git-branch-name/SKILL.md
+- source: .agents/skills/git-commit/SKILL.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/cli.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/process.py
+  - .agents/skills/git-commit/SKILL.md
+- source: .agents/skills/git-pr/SKILL.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/process.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/test_cli.py
+  - .agents/skills/git-pr/SKILL.md
+- source: .agents/skills/git-pr/package.json
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/test_cli.py
-- source: .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/test_process.py
+  - .agents/skills/git-pr/package.json
+- source: .agents/skills/git-pr/references/_pr-evidence-format.md
   destinations:
-  - .opencode/skills/op-model/scripts/op_model_lookup/infrastructure/test_process.py
-- source: .opencode/skills/op-skill-creator/SKILL.md
+  - .agents/skills/git-pr/references/_pr-evidence-format.md
+- source: .agents/skills/git-pr/references/_pr-publication-input.md
   destinations:
-  - .opencode/skills/op-skill-creator/SKILL.md
-- source: .opencode/skills/plan-enforce/SKILL.md
+  - .agents/skills/git-pr/references/_pr-publication-input.md
+- source: .agents/skills/git-pr/scripts/pr_content/application/prepare_publication.ts
   destinations:
-  - .opencode/skills/plan-enforce/SKILL.md
-- source: .opencode/skills/plan-enforce/references/_consistency-checklist.md
+  - .agents/skills/git-pr/scripts/pr_content/application/prepare_publication.ts
+- source: .agents/skills/git-pr/scripts/pr_content/domain/body_format.ts
   destinations:
-  - .opencode/skills/plan-enforce/references/_consistency-checklist.md
-- source: .opencode/skills/plan-enforce/references/_lifecycle-contract.md
+  - .agents/skills/git-pr/scripts/pr_content/domain/body_format.ts
+- source: .agents/skills/git-pr/scripts/pr_content/domain/ports.ts
   destinations:
-  - .opencode/skills/plan-enforce/references/_lifecycle-contract.md
-- source: .opencode/skills/plan-enforce/references/_phase-template.md
+  - .agents/skills/git-pr/scripts/pr_content/domain/ports.ts
+- source: .agents/skills/git-pr/scripts/pr_content/domain/records.ts
   destinations:
-  - .opencode/skills/plan-enforce/references/_phase-template.md
-- source: .opencode/skills/plan-enforce/references/_template-programming.md
+  - .agents/skills/git-pr/scripts/pr_content/domain/records.ts
+- source: .agents/skills/git-pr/scripts/pr_content/domain/rendering.ts
   destinations:
-  - .opencode/skills/plan-enforce/references/_template-programming.md
-- source: .opencode/skills/plan-enforce/references/_template.md
+  - .agents/skills/git-pr/scripts/pr_content/domain/rendering.ts
+- source: .agents/skills/git-pr/scripts/pr_content/domain/validation.ts
   destinations:
-  - .opencode/skills/plan-enforce/references/_template.md
-- source: .opencode/skills/plan-enforce/scripts/_validate_plan_testkit.py
+  - .agents/skills/git-pr/scripts/pr_content/domain/validation.ts
+- source: .agents/skills/git-pr/scripts/pr_content/infrastructure/adapters/prepared_receipt.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/_validate_plan_testkit.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/__init__.py
+  - .agents/skills/git-pr/scripts/pr_content/infrastructure/adapters/prepared_receipt.ts
+- source: .agents/skills/git-pr/scripts/pr_content/infrastructure/adapters/publication_record.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/__init__.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/application/__init__.py
+  - .agents/skills/git-pr/scripts/pr_content/infrastructure/adapters/publication_record.ts
+- source: .agents/skills/git-pr/scripts/pr_content/infrastructure/filesystem.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/application/__init__.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/application/validate.py
+  - .agents/skills/git-pr/scripts/pr_content/infrastructure/filesystem.ts
+- source: .agents/skills/git-pr/scripts/prepare_pr_review.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/application/validate.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/domain/__init__.py
+  - .agents/skills/git-pr/scripts/prepare_pr_review.ts
+- source: .agents/skills/git-pr/tests/e2e/prepare-pr-review-cli.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/domain/__init__.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/domain/rules.py
+  - .agents/skills/git-pr/tests/e2e/prepare-pr-review-cli.test.ts
+- source: .agents/skills/git-pr/tests/e2e/standalone-content-skill.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/domain/rules.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/entry.py
+  - .agents/skills/git-pr/tests/e2e/standalone-content-skill.test.ts
+- source: .agents/skills/git-pr/tests/integration/filesystem.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/entry.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/infrastructure/__init__.py
+  - .agents/skills/git-pr/tests/integration/filesystem.test.ts
+- source: .agents/skills/git-pr/tests/support/publication-fixtures.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/infrastructure/__init__.py
-- source: .opencode/skills/plan-enforce/scripts/plan_validate_pkg/infrastructure/reader.py
+  - .agents/skills/git-pr/tests/support/publication-fixtures.ts
+- source: .agents/skills/git-pr/tests/unit/prepare-publication.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/plan_validate_pkg/infrastructure/reader.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan.py
+  - .agents/skills/git-pr/tests/unit/prepare-publication.test.ts
+- source: .agents/skills/git-pr/tests/unit/publication-authored-content.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_audit_gate.py
+  - .agents/skills/git-pr/tests/unit/publication-authored-content.test.ts
+- source: .agents/skills/git-pr/tests/unit/publication-finding-decisions.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_audit_gate.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_cli.py
+  - .agents/skills/git-pr/tests/unit/publication-finding-decisions.test.ts
+- source: .agents/skills/git-pr/tests/unit/publication-independent-debt.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_cli.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_escaped_pipes.py
+  - .agents/skills/git-pr/tests/unit/publication-independent-debt.test.ts
+- source: .agents/skills/git-pr/tests/unit/publication-item-states.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_escaped_pipes.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_goal_trace.py
+  - .agents/skills/git-pr/tests/unit/publication-item-states.test.ts
+- source: .agents/skills/git-pr/tests/unit/publication-verdict-readiness.test.ts
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_goal_trace.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_manifest.py
+  - .agents/skills/git-pr/tests/unit/publication-verdict-readiness.test.ts
+- source: .agents/skills/git-pr/tsconfig.json
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_manifest.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_phase_structure.py
+  - .agents/skills/git-pr/tsconfig.json
+- source: .agents/skills/op-agent-creator/SKILL.md
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_phase_structure.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_story_index.py
+  - .agents/skills/op-agent-creator/SKILL.md
+- source: .agents/skills/op-agent-creator/references/custom-agent-examples.md
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_story_index.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_template_render.py
+  - .agents/skills/op-agent-creator/references/custom-agent-examples.md
+- source: .agents/skills/op-agent-creator/references/governed-roster-code-reviewer.md
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_template_render.py
-- source: .opencode/skills/plan-enforce/scripts/test_validate_plan_verification_parity.py
+  - .agents/skills/op-agent-creator/references/governed-roster-code-reviewer.md
+- source: .agents/skills/op-model/SKILL.md
   destinations:
-  - .opencode/skills/plan-enforce/scripts/test_validate_plan_verification_parity.py
-- source: .opencode/skills/plan-enforce/scripts/validate_plan.py
+  - .agents/skills/op-model/SKILL.md
+- source: .agents/skills/op-model/package.json
   destinations:
-  - .opencode/skills/plan-enforce/scripts/validate_plan.py
-- source: .opencode/skills/query-verification/SKILL.md
+  - .agents/skills/op-model/package.json
+- source: .agents/skills/op-model/scripts/models.ts
   destinations:
-  - .opencode/skills/query-verification/SKILL.md
-- source: .opencode/skills/query-verification/fixtures/valid/adapter-output.json
+  - .agents/skills/op-model/scripts/models.ts
+- source: .agents/skills/op-model/scripts/op_model_lookup/application/find_models.ts
   destinations:
-  - .opencode/skills/query-verification/fixtures/valid/adapter-output.json
-- source: .opencode/skills/query-verification/fixtures/valid/incident-check.sql
+  - .agents/skills/op-model/scripts/op_model_lookup/application/find_models.ts
+- source: .agents/skills/op-model/scripts/op_model_lookup/domain/catalog.ts
   destinations:
-  - .opencode/skills/query-verification/fixtures/valid/incident-check.sql
-- source: .opencode/skills/query-verification/fixtures/valid/incident-check.verifier.yaml
+  - .agents/skills/op-model/scripts/op_model_lookup/domain/catalog.ts
+- source: .agents/skills/op-model/scripts/op_model_lookup/infrastructure/cli.ts
   destinations:
-  - .opencode/skills/query-verification/fixtures/valid/incident-check.verifier.yaml
-- source: .opencode/skills/query-verification/references/adapter-output-v1.json
+  - .agents/skills/op-model/scripts/op_model_lookup/infrastructure/cli.ts
+- source: .agents/skills/op-model/scripts/op_model_lookup/infrastructure/process.ts
   destinations:
-  - .opencode/skills/query-verification/references/adapter-output-v1.json
-- source: .opencode/skills/query-verification/references/case-evidence-v1.json
+  - .agents/skills/op-model/scripts/op_model_lookup/infrastructure/process.ts
+- source: .agents/skills/op-model/tests/e2e/models-cli.test.ts
   destinations:
-  - .opencode/skills/query-verification/references/case-evidence-v1.json
-- source: .opencode/skills/query-verification/references/protocol-v1.md
+  - .agents/skills/op-model/tests/e2e/models-cli.test.ts
+- source: .agents/skills/op-model/tests/integration/process.test.ts
   destinations:
-  - .opencode/skills/query-verification/references/protocol-v1.md
-- source: .opencode/skills/query-verification/references/verifier-sidecar-v1.yaml
+  - .agents/skills/op-model/tests/integration/process.test.ts
+- source: .agents/skills/op-model/tests/support/model.factory.ts
   destinations:
-  - .opencode/skills/query-verification/references/verifier-sidecar-v1.yaml
-- source: .opencode/skills/query-verification/scripts/_query_verification_testkit.py
+  - .agents/skills/op-model/tests/support/model.factory.ts
+- source: .agents/skills/op-model/tests/unit/catalog.test.ts
   destinations:
-  - .opencode/skills/query-verification/scripts/_query_verification_testkit.py
-- source: .opencode/skills/query-verification/scripts/query_verification.py
+  - .agents/skills/op-model/tests/unit/catalog.test.ts
+- source: .agents/skills/op-model/tests/unit/find-models.test.ts
   destinations:
-  - .opencode/skills/query-verification/scripts/query_verification.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification.py
+  - .agents/skills/op-model/tests/unit/find-models.test.ts
+- source: .agents/skills/op-model/tsconfig.json
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification_execution_surface.py
+  - .agents/skills/op-model/tsconfig.json
+- source: .agents/skills/op-skill-creator/SKILL.md
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification_execution_surface.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification_fixtures.py
+  - .agents/skills/op-skill-creator/SKILL.md
+- source: .agents/skills/op-skill-creator/package.json
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification_fixtures.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification_paths.py
+  - .agents/skills/op-skill-creator/package.json
+- source: .agents/skills/op-skill-creator/scripts/check_markdown_text.ts
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification_paths.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification_sidecar_schema.py
+  - .agents/skills/op-skill-creator/scripts/check_markdown_text.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/application/check_text.ts
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification_sidecar_schema.py
-- source: .opencode/skills/query-verification/scripts/test_query_verification_sql_safety.py
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/application/check_text.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/models.ts
   destinations:
-  - .opencode/skills/query-verification/scripts/test_query_verification_sql_safety.py
-- source: .opencode/skills/ticket-runbook/SKILL.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/models.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/policy.ts
   destinations:
-  - .opencode/skills/ticket-runbook/SKILL.md
-- source: .opencode/skills/ticket-runbook/references/_consistency-checklist.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/policy.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/ports.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/_consistency-checklist.md
-- source: .opencode/skills/ticket-runbook/references/analysis/01-identify.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/ports.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/scan.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/analysis/01-identify.md
-- source: .opencode/skills/ticket-runbook/references/analysis/02-investigate.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/domain/scan.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/infrastructure/composition.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/analysis/02-investigate.md
-- source: .opencode/skills/ticket-runbook/references/analysis/03-synthesize.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/infrastructure/composition.ts
+- source: .agents/skills/op-skill-creator/scripts/markdown_text_pkg/infrastructure/filesystem.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/analysis/03-synthesize.md
-- source: .opencode/skills/ticket-runbook/references/analysis/state.md
+  - .agents/skills/op-skill-creator/scripts/markdown_text_pkg/infrastructure/filesystem.ts
+- source: .agents/skills/op-skill-creator/tests/e2e/checker-cli.test.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/analysis/state.md
-- source: .opencode/skills/ticket-runbook/references/response-draft-template.md
+  - .agents/skills/op-skill-creator/tests/e2e/checker-cli.test.ts
+- source: .agents/skills/op-skill-creator/tests/integration/filesystem.test.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/response-draft-template.md
-- source: .opencode/skills/ticket-runbook/references/ticket-template.md
+  - .agents/skills/op-skill-creator/tests/integration/filesystem.test.ts
+- source: .agents/skills/op-skill-creator/tests/support/markdown-text-fixtures.ts
   destinations:
-  - .opencode/skills/ticket-runbook/references/ticket-template.md
-- source: .opencode/skills/ticket-runbook/scripts/_ticket_runbook_testkit.py
+  - .agents/skills/op-skill-creator/tests/support/markdown-text-fixtures.ts
+- source: .agents/skills/op-skill-creator/tests/unit/editor-projection.test.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/_ticket_runbook_testkit.py
-- source: .opencode/skills/ticket-runbook/scripts/e2e/test_validate_runbook_citation_comments.py
+  - .agents/skills/op-skill-creator/tests/unit/editor-projection.test.ts
+- source: .agents/skills/op-skill-creator/tests/unit/policy-parse.test.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/e2e/test_validate_runbook_citation_comments.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook.py
+  - .agents/skills/op-skill-creator/tests/unit/policy-parse.test.ts
+- source: .agents/skills/op-skill-creator/tests/unit/scan.test.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_cli.py
+  - .agents/skills/op-skill-creator/tests/unit/scan.test.ts
+- source: .agents/skills/op-skill-creator/tsconfig.json
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_cli.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_close_out.py
+  - .agents/skills/op-skill-creator/tsconfig.json
+- source: .agents/skills/incident-workflow/SKILL.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_close_out.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_concurrent_session.py
+  - .agents/skills/incident-workflow/SKILL.md
+- source: .agents/skills/incident-workflow/package.json
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_concurrent_session.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_header_budgets.py
+  - .agents/skills/incident-workflow/package.json
+- source: .agents/skills/incident-workflow/references/_consistency-checklist.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_header_budgets.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_paths.py
+  - .agents/skills/incident-workflow/references/_consistency-checklist.md
+- source: .agents/skills/incident-workflow/references/analysis/01-identify.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_paths.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_pre_close.py
+  - .agents/skills/incident-workflow/references/analysis/01-identify.md
+- source: .agents/skills/incident-workflow/references/analysis/02-investigate.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_pre_close.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_register_first.py
+  - .agents/skills/incident-workflow/references/analysis/02-investigate.md
+- source: .agents/skills/incident-workflow/references/analysis/03-synthesize.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_register_first.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_sla_clock.py
+  - .agents/skills/incident-workflow/references/analysis/03-synthesize.md
+- source: .agents/skills/incident-workflow/references/analysis/state.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_sla_clock.py
-- source: .opencode/skills/ticket-runbook/scripts/test_validate_runbook_step_mode.py
+  - .agents/skills/incident-workflow/references/analysis/state.md
+- source: .agents/skills/incident-workflow/references/local-problems-template.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/test_validate_runbook_step_mode.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/__init__.py
+  - .agents/skills/incident-workflow/references/local-problems-template.md
+- source: .agents/skills/incident-workflow/references/local-symptoms-template.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/__init__.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/__init__.py
+  - .agents/skills/incident-workflow/references/local-symptoms-template.md
+- source: .agents/skills/incident-workflow/references/response-draft-template.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/__init__.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/test_clock_injection.py
+  - .agents/skills/incident-workflow/references/response-draft-template.md
+- source: .agents/skills/incident-workflow/references/ticket-template.md
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/test_clock_injection.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate.py
+  - .agents/skills/incident-workflow/references/ticket-template.md
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/initialize_local_registers.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_close_out.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/initialize_local_registers.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_analysis.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_close_out.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_pre_close.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_analysis.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_close_out.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_pre_close.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_scaffold.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_close_out.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_diagnostic_knowledge.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_scaffold.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_step.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_diagnostic_knowledge.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_pre_close.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/application/validate_step.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/domain/__init__.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_pre_close.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_scaffold.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/domain/__init__.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/domain/rules.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_scaffold.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_step.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/domain/rules.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/entry.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/application/validate_step.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/errors.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/entry.py
-- source: .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/test_clock_compatibility.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/errors.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/ports.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/ticket_runbook_pkg/test_clock_compatibility.py
-- source: .opencode/skills/ticket-runbook/scripts/validate_runbook.py
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/ports.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/problem.ts
   destinations:
-  - .opencode/skills/ticket-runbook/scripts/validate_runbook.py
-- source: .opencode/skills/user-story/SKILL.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/problem.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/rules.ts
   destinations:
-  - .opencode/skills/user-story/SKILL.md
-- source: .opencode/skills/user-story/references/_classification-guide.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/rules.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/symptom-catalog.ts
   destinations:
-  - .opencode/skills/user-story/references/_classification-guide.md
-- source: .opencode/skills/user-story/references/_consistency-checklist.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/symptom-catalog.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/symptom-id.ts
   destinations:
-  - .opencode/skills/user-story/references/_consistency-checklist.md
-- source: .opencode/skills/user-story/references/_template-user-story.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/domain/symptom-id.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/entry.ts
   destinations:
-  - .opencode/skills/user-story/references/_template-user-story.md
-- source: .opencode/agents/lumen.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/entry.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/arguments.ts
   destinations:
-  - .opencode/agents/lumen.md
-- source: agents/lumen/profile.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/arguments.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/filesystem.ts
   destinations:
-  - agents/lumen/profile.md
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/filesystem.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/frontmatter.ts
+  destinations:
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/frontmatter.ts
+- source: .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/records.ts
+  destinations:
+  - .agents/skills/incident-workflow/scripts/incident_workflow_pkg/infrastructure/records.ts
+- source: .agents/skills/incident-workflow/scripts/init_local_registers.ts
+  destinations:
+  - .agents/skills/incident-workflow/scripts/init_local_registers.ts
+- source: .agents/skills/incident-workflow/scripts/validate_incident_workflow.ts
+  destinations:
+  - .agents/skills/incident-workflow/scripts/validate_incident_workflow.ts
+- source: .agents/skills/incident-workflow/tests/e2e/init-registers-cli.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/e2e/init-registers-cli.test.ts
+- source: .agents/skills/incident-workflow/tests/e2e/validator-cli.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/e2e/validator-cli.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/incident-yaml.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/incident-yaml.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/pre-close-filesystem.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/pre-close-filesystem.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/problem-register-adapter.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/problem-register-adapter.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/problem-rows-adapter.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/problem-rows-adapter.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/state-header-scalars.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/state-header-scalars.test.ts
+- source: .agents/skills/incident-workflow/tests/integration/step-files-adapter.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/integration/step-files-adapter.test.ts
+- source: .agents/skills/incident-workflow/tests/support/incident-validator-fixtures.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/support/incident-validator-fixtures.ts
+- source: .agents/skills/incident-workflow/tests/support/incident-yaml-fixtures.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/support/incident-yaml-fixtures.ts
+- source: .agents/skills/incident-workflow/tests/unit/analysis-concurrent-session.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/analysis-concurrent-session.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/analysis-incomplete-set.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/analysis-incomplete-set.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/analysis-sla-clock.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/analysis-sla-clock.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/close-out-postconditions.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/close-out-postconditions.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/diagnostic-knowledge.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/diagnostic-knowledge.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/pre-close-safety.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/pre-close-safety.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/pre-close-verdicts.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/pre-close-verdicts.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/register-initialization.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/register-initialization.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/register-loader.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/register-loader.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/scaffold-checks.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/scaffold-checks.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/step-checks.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/step-checks.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/symptom-identifiers.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/symptom-identifiers.test.ts
+- source: .agents/skills/incident-workflow/tests/unit/validator-arguments.test.ts
+  destinations:
+  - .agents/skills/incident-workflow/tests/unit/validator-arguments.test.ts
+- source: .agents/skills/incident-workflow/tsconfig.json
+  destinations:
+  - .agents/skills/incident-workflow/tsconfig.json
+- source: .agents/skills/git-pr-workflow/SKILL.md
+  destinations:
+  - .agents/skills/git-pr-workflow/SKILL.md
+- source: .agents/skills/git-pr-workflow/package.json
+  destinations:
+  - .agents/skills/git-pr-workflow/package.json
+- source: .agents/skills/git-pr-workflow/references/_attribution-patterns.json
+  destinations:
+  - .agents/skills/git-pr-workflow/references/_attribution-patterns.json
+- source: .agents/skills/git-pr-workflow/references/_attribution-snapshot-template.json
+  destinations:
+  - .agents/skills/git-pr-workflow/references/_attribution-snapshot-template.json
+- source: .agents/skills/git-pr-workflow/references/_pr-workflow-inputs.md
+  destinations:
+  - .agents/skills/git-pr-workflow/references/_pr-workflow-inputs.md
+- source: .agents/skills/git-pr-workflow/scripts/attribution_scan/application/scan_attribution.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/attribution_scan/application/scan_attribution.ts
+- source: .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/matching.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/matching.ts
+- source: .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/records.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/records.ts
+- source: .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/validation.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/attribution_scan/domain/validation.ts
+- source: .agents/skills/git-pr-workflow/scripts/attribution_scan/infrastructure/adapters/snapshot_document.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/attribution_scan/infrastructure/adapters/snapshot_document.ts
+- source: .agents/skills/git-pr-workflow/scripts/cli_delivery.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/cli_delivery.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/application/assemble_review_snapshot.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/application/assemble_review_snapshot.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/application/collect_local_inventory.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/application/collect_local_inventory.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/application/prepare_local_snapshot.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/application/prepare_local_snapshot.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/application/verify_persisted_body.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/application/verify_persisted_body.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/domain/ports.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/domain/ports.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/domain/records.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/domain/records.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/domain/snapshot_assembly.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/domain/snapshot_assembly.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/pr_capture.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/pr_capture.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/prepared_receipt.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/prepared_receipt.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/snapshot_assembly.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/adapters/snapshot_assembly.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/filesystem.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/filesystem.ts
+- source: .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/git_reader.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/pr_review/infrastructure/git_reader.ts
+- source: .agents/skills/git-pr-workflow/scripts/prepare_pr_evidence.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/prepare_pr_evidence.ts
+- source: .agents/skills/git-pr-workflow/scripts/scan_attribution.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/scripts/scan_attribution.ts
+- source: .agents/skills/git-pr-workflow/tests/e2e/isolated-copy.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/e2e/isolated-copy.test.ts
+- source: .agents/skills/git-pr-workflow/tests/e2e/prepare-pr-evidence-cli.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/e2e/prepare-pr-evidence-cli.test.ts
+- source: .agents/skills/git-pr-workflow/tests/e2e/scan-attribution-cli.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/e2e/scan-attribution-cli.test.ts
+- source: .agents/skills/git-pr-workflow/tests/integration/filesystem.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/integration/filesystem.test.ts
+- source: .agents/skills/git-pr-workflow/tests/integration/git-reader-boundary-failures.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/integration/git-reader-boundary-failures.test.ts
+- source: .agents/skills/git-pr-workflow/tests/integration/git-reader-missing-executable.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/integration/git-reader-missing-executable.test.ts
+- source: .agents/skills/git-pr-workflow/tests/integration/git-reader-outside-repository.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/integration/git-reader-outside-repository.test.ts
+- source: .agents/skills/git-pr-workflow/tests/integration/git-reader-real-repository.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/integration/git-reader-real-repository.test.ts
+- source: .agents/skills/git-pr-workflow/tests/support/attribution-fixtures.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/support/attribution-fixtures.ts
+- source: .agents/skills/git-pr-workflow/tests/support/review-fixtures.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/support/review-fixtures.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/assemble-review-snapshot.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/assemble-review-snapshot.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/attribution-matching.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/attribution-matching.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/attribution-policy-input-validation.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/attribution-policy-input-validation.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/attribution-policy-self-exclusion.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/attribution-policy-self-exclusion.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/attribution-scan-execute.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/attribution-scan-execute.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/attribution-snapshot-input-validation.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/attribution-snapshot-input-validation.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/collect-local-inventory.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/collect-local-inventory.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/local-inventory-validation.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/local-inventory-validation.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/prepare-local-snapshot.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/prepare-local-snapshot.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/prepared-receipt.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/prepared-receipt.test.ts
+- source: .agents/skills/git-pr-workflow/tests/unit/verify-persisted-body.test.ts
+  destinations:
+  - .agents/skills/git-pr-workflow/tests/unit/verify-persisted-body.test.ts
+- source: .agents/skills/git-pr-workflow/tsconfig.json
+  destinations:
+  - .agents/skills/git-pr-workflow/tsconfig.json
+- source: .agents/skills/odd-workflow/SKILL.md
+  destinations:
+  - .agents/skills/odd-workflow/SKILL.md
+- source: .agents/skills/odd-workflow/package.json
+  destinations:
+  - .agents/skills/odd-workflow/package.json
+- source: .agents/skills/odd-workflow/references/_checklist.md
+  destinations:
+  - .agents/skills/odd-workflow/references/_checklist.md
+- source: .agents/skills/odd-workflow/scripts/feature_file_validation/application/validate_feature_files.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_file_validation/application/validate_feature_files.ts
+- source: .agents/skills/odd-workflow/scripts/feature_file_validation/domain/ports.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_file_validation/domain/ports.ts
+- source: .agents/skills/odd-workflow/scripts/feature_file_validation/domain/records.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_file_validation/domain/records.ts
+- source: .agents/skills/odd-workflow/scripts/feature_file_validation/domain/rules.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_file_validation/domain/rules.ts
+- source: .agents/skills/odd-workflow/scripts/feature_file_validation/infrastructure/filesystem.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_file_validation/infrastructure/filesystem.ts
+- source: .agents/skills/odd-workflow/scripts/feature_validation/application/validate_features.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_validation/application/validate_features.ts
+- source: .agents/skills/odd-workflow/scripts/feature_validation/domain/ports.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_validation/domain/ports.ts
+- source: .agents/skills/odd-workflow/scripts/feature_validation/domain/records.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_validation/domain/records.ts
+- source: .agents/skills/odd-workflow/scripts/feature_validation/domain/rules.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_validation/domain/rules.ts
+- source: .agents/skills/odd-workflow/scripts/feature_validation/infrastructure/filesystem.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/feature_validation/infrastructure/filesystem.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check/application/check_retirements.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check/application/check_retirements.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check/domain/ports.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check/domain/ports.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check/domain/records.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check/domain/records.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check/domain/rules.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check/domain/rules.ts
+- source: .agents/skills/odd-workflow/scripts/retirement_check/infrastructure/filesystem.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/retirement_check/infrastructure/filesystem.ts
+- source: .agents/skills/odd-workflow/scripts/validate_feature.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/validate_feature.ts
+- source: .agents/skills/odd-workflow/scripts/validate_feature_file.ts
+  destinations:
+  - .agents/skills/odd-workflow/scripts/validate_feature_file.ts
+- source: .agents/skills/odd-workflow/tests/e2e/feature-file-validator-cli.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/e2e/feature-file-validator-cli.test.ts
+- source: .agents/skills/odd-workflow/tests/e2e/feature-file-validator-isolated-copy.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/e2e/feature-file-validator-isolated-copy.test.ts
+- source: .agents/skills/odd-workflow/tests/e2e/isolated-copy.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/e2e/isolated-copy.test.ts
+- source: .agents/skills/odd-workflow/tests/e2e/retirement-check-cli.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/e2e/retirement-check-cli.test.ts
+- source: .agents/skills/odd-workflow/tests/e2e/validator-cli.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/e2e/validator-cli.test.ts
+- source: .agents/skills/odd-workflow/tests/integration/feature-file-source-filesystem.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/integration/feature-file-source-filesystem.test.ts
+- source: .agents/skills/odd-workflow/tests/integration/feature-source-filesystem-discover.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/integration/feature-source-filesystem-discover.test.ts
+- source: .agents/skills/odd-workflow/tests/integration/feature-source-filesystem-read.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/integration/feature-source-filesystem-read.test.ts
+- source: .agents/skills/odd-workflow/tests/integration/retirement-source-filesystem-discover.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/integration/retirement-source-filesystem-discover.test.ts
+- source: .agents/skills/odd-workflow/tests/integration/retirement-source-filesystem-read.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/integration/retirement-source-filesystem-read.test.ts
+- source: .agents/skills/odd-workflow/tests/support/feature-file-fixtures.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/support/feature-file-fixtures.ts
+- source: .agents/skills/odd-workflow/tests/support/feature-fixtures.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/support/feature-fixtures.ts
+- source: .agents/skills/odd-workflow/tests/support/retirement-fixtures.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/support/retirement-fixtures.ts
+- source: .agents/skills/odd-workflow/tests/unit/feature-closure.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/unit/feature-closure.test.ts
+- source: .agents/skills/odd-workflow/tests/unit/feature-file-validation.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/unit/feature-file-validation.test.ts
+- source: .agents/skills/odd-workflow/tests/unit/feature-validation.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/unit/feature-validation.test.ts
+- source: .agents/skills/odd-workflow/tests/unit/retirement-check.test.ts
+  destinations:
+  - .agents/skills/odd-workflow/tests/unit/retirement-check.test.ts
+- source: .agents/skills/odd-workflow/tsconfig.json
+  destinations:
+  - .agents/skills/odd-workflow/tsconfig.json
 - source: .opencode/agents/atrium.md
   destinations:
   - .opencode/agents/atrium.md
-- source: .opencode/agents/augur.md
-  destinations:
-  - .opencode/agents/augur.md
 - source: .opencode/agents/bastion.md
   destinations:
   - .opencode/agents/bastion.md
@@ -368,9 +708,9 @@ bindings:
 - source: .opencode/agents/ledger.md
   destinations:
   - .opencode/agents/ledger.md
-- source: .opencode/agents/marshal.md
+- source: .opencode/agents/lumen.md
   destinations:
-  - .opencode/agents/marshal.md
+  - .opencode/agents/lumen.md
 - source: .opencode/agents/quill.md
   destinations:
   - .opencode/agents/quill.md
@@ -386,85 +726,4 @@ bindings:
 - source: .opencode/agents/warden.md
   destinations:
   - .opencode/agents/warden.md
-- source: agents/atrium/profile.md
-  destinations:
-  - agents/atrium/profile.md
-- source: agents/augur/profile.md
-  destinations:
-  - agents/augur/profile.md
-- source: agents/bastion/profile.md
-  destinations:
-  - agents/bastion/profile.md
-- source: agents/cipher/profile.md
-  destinations:
-  - agents/cipher/profile.md
-- source: agents/crucible/profile.md
-  destinations:
-  - agents/crucible/profile.md
-- source: agents/forge/profile.md
-  destinations:
-  - agents/forge/profile.md
-- source: agents/herald/profile.md
-  destinations:
-  - agents/herald/profile.md
-- source: agents/inquisitor/profile.md
-  destinations:
-  - agents/inquisitor/profile.md
-- source: agents/investigator/profile.md
-  destinations:
-  - agents/investigator/profile.md
-- source: agents/ledger/profile.md
-  destinations:
-  - agents/ledger/profile.md
-- source: agents/marshal/profile.md
-  destinations:
-  - agents/marshal/profile.md
-- source: agents/quill/profile.md
-  destinations:
-  - agents/quill/profile.md
-- source: agents/scribe/profile.md
-  destinations:
-  - agents/scribe/profile.md
-- source: agents/sentinel/profile.md
-  destinations:
-  - agents/sentinel/profile.md
-- source: agents/vault/profile.md
-  destinations:
-  - agents/vault/profile.md
-- source: agents/warden/profile.md
-  destinations:
-  - agents/warden/profile.md
-- source: user-stories/clean-architecture-contract.md
-  destinations:
-  - user-stories/clean-architecture-contract.md
-- source: user-stories/diagnostic-system.md
-  destinations:
-  - user-stories/diagnostic-system.md
-- source: user-stories/git-pr-drafting.md
-  destinations:
-  - user-stories/git-pr-drafting.md
-- source: user-stories/incident-query-verification.md
-  destinations:
-  - user-stories/incident-query-verification.md
-- source: user-stories/op-model-configuration.md
-  destinations:
-  - user-stories/op-model-configuration.md
-- source: user-stories/plan-lifecycle-governance.md
-  destinations:
-  - user-stories/plan-lifecycle-governance.md
-- source: user-stories/post-merge-branch-cleanup.md
-  destinations:
-  - user-stories/post-merge-branch-cleanup.md
-- source: user-stories/pr-test-evidence-collection.md
-  destinations:
-  - user-stories/pr-test-evidence-collection.md
-- source: user-stories/register-first-incident-identification.md
-  destinations:
-  - user-stories/register-first-incident-identification.md
-- source: user-stories/safe-roster-parallelism.md
-  destinations:
-  - user-stories/safe-roster-parallelism.md
-- source: user-stories/user-story.md
-  destinations:
-  - user-stories/user-story.md
 pending: []
