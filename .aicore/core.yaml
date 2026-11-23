@@ -1,5 +1,5 @@
 schema: 1
-core_revision: "79a985b5f4301503257f4588c1cfbb3ccd4be913"
+core_revision: "c6fe1de8c8c22f5ef4ad85669d21b78b63f2040b"
 root: AGENTS.md
 editor: opencode
 bindings:
@@ -726,4 +726,7 @@ bindings:
 - source: .opencode/agents/warden.md
   destinations:
   - .opencode/agents/warden.md
+- source: .aicore/core/architecture/implementation/architecture-boundaries.svg
+  destinations:
+  - .aicore/core/architecture/implementation/architecture-boundaries.svg
 pending: []

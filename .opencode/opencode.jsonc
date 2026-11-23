@@ -458,79 +458,61 @@
   "mcp": {
   "servers": {
     "chrome-devtools": {
-      "type": "local",
-      "command": [
-        "cmd",
-        "/c",
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@1.12.0",
-        "--no-usage-statistics",
-        "--no-performance-crux"
-      ],
-      "environment": {
-        "CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS": "1"
-      }
-    },
+        "type": "local",
+        "command": [
+          "cmd",
+          "/c",
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@1.12.0",
+          "--no-usage-statistics",
+          "--no-performance-crux"
+        ],
+        "environment": {
+          "CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS": "1"
+        }
+      },
     "memories": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@memories.sh/cli@0.7.9",
-        "serve"
-      ],
-      "codemode": false,
-      "environment": {
-        "npm_config_ignore_scripts": "true",
-        "MEMORIES_SKIP_POSTINSTALL": "1"
-      }
-    },
+        "type": "local",
+        "command": ["npx", "-y", "@memories.sh/cli@0.7.9", "serve"],
+        "codemode": false,
+        "environment": {
+          "npm_config_ignore_scripts": "true",
+          "MEMORIES_SKIP_POSTINSTALL": "1"
+        }
+      },
     "qmd": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@tobilu/qmd@2.8.3",
-        "--index",
-        "gitez",
-        "mcp"
-      ],
-      "codemode": false,
-      "environment": {
-        "npm_config_ignore_scripts": "true"
-      }
-    },
+        "type": "local",
+        "command": ["npx", "-y", "@tobilu/qmd@2.8.3", "--index", "gitez", "mcp"],
+        "codemode": false,
+        "environment": {
+          "npm_config_ignore_scripts": "true"
+        }
+      },
     "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{file:../.secrets/context7-api-key}"
-      }
-    },
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{file:../.secrets/context7-api-key}"
+        }
+      },
     "astgrep": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "--from",
-        "git+https://github.com/ast-grep/ast-grep-mcp@149e20d47bb7125fb0c1451feea2f48a98742034",
-        "ast-grep-server"
-      ]
-    },
+        "type": "local",
+        "command": [
+          "uvx",
+          "--from",
+          "git+https://github.com/ast-grep/ast-grep-mcp@149e20d47bb7125fb0c1451feea2f48a98742034",
+          "ast-grep-server"
+        ]
+      },
     "semgrep": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "--from",
-        "semgrep==1.182.1",
-        "semgrep",
-        "mcp"
-      ],
-      "environment": {
-        "SEMGREP_SEND_METRICS": "off",
-        "OTEL_SDK_DISABLED": "true"
+        "type": "local",
+        "command": ["uvx", "--from", "semgrep==1.182.1", "semgrep", "mcp"],
+        "environment": {
+          "SEMGREP_SEND_METRICS": "off",
+          "OTEL_SDK_DISABLED": "true"
+        }
       }
-    }
   }
 }
 }
